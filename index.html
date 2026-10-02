@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IM the Tech Guy | CompTIA A+ Learning</title>
+
+    <meta name="description"
+          content="IM the Tech Guy — a practical learning resource for CompTIA A+ and IT fundamentals.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 80% 30%, #123b5d 0%, transparent 30%),
+                radial-gradient(circle at 20% 70%, #172554 0%, transparent 30%);
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #38bdf8;
+            color: #082f49;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: #7dd3fc;
+        }
+
+        /* TERMINAL */
+
+        .terminal {
+            background: #020617;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .terminal-header {
+            background: #1e293b;
+            padding: 12px 15px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #64748b;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: monospace;
+            color: #38bdf8;
+        }
+
+        .terminal-body p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .terminal-body .white {
+            color: #e2e8f0;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            color: #94a3b8;
+            max-width: 650px;
+            margin-bottom: 40px;
+        }
+
+        /* TOPICS */
+
+        .topics {
+            background: #0f172a;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: #111c31;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.2s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .topic-card h3 {
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .topic-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: #111827;
+            border-left: 4px solid #38bdf8;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .about-box p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #1e293b;
+            padding: 30px 25px;
+            text-align: center;
+            color: #64748b;
+            background: #020617;
+        }
+
+        footer strong {
+            color: #94a3b8;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal {
+                display: none;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                IM<span>theTechGuy</span>
+            </div>
+
+            <div>
+                <a href="#home">Home</a>
+                <a href="#topics">Topics</a>
+                <a href="#about">About</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div>
+
+                <h1>
+                    IM the<br>
+                    <span>Tech Guy.</span>
+                </h1>
+
+                <p>
+                    A practical learning resource for understanding
+                    IT, networking, hardware and everything you need
+                    to know to conquer CompTIA A+.
+                </p>
+
+                <a href="#topics" class="button">
+                    Start Learning →
+                </a>
+
+            </div>
+
+
+            <div class="terminal">
+
+                <div class="terminal-header">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <div class="terminal-body">
+
+                    <p>
+                        <span class="white">$</span>
+                        start-learning
+                    </p>
+
+                    <p>
+                        <span class="white">></span>
+                        CompTIA A+
+                    </p>
+
+                    <p>
+                        <span class="white">></span>
+                        Networking
+                    </p>
+
+                    <p>
+                        <span class="white">></span>
+                        Hardware
+                    </p>
+
+                    <p>
+                        <span class="white">></span>
+                        Troubleshooting
+                    </p>
+
+                    <p>
+                        <span class="white">></span>
+                        Keep learning_</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- TOPICS -->
+
+    <section class="topics" id="topics">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                CompTIA A+ Learning
+            </h2>
+
+            <p class="section-intro">
+                Learn the fundamentals of IT through simple explanations,
+                diagrams, examples and practical troubleshooting.
+            </p>
+
+
+            <div class="topic-grid">
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">🖥️</div>
+
+                    <h3>Hardware</h3>
+
+                    <p>
+                        CPUs, RAM, storage, motherboards, power supplies,
+                        peripherals and more.
+                    </p>
+
+                    <a href="#">
+                        Learn Hardware →
+                    </a>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">🌐</div>
+
+                    <h3>Networking</h3>
+
+                    <p>
+                        IPv4, IPv6, subnetting, DNS, DHCP, NAT,
+                        VLANs, VPNs and networking fundamentals.
+                    </p>
+
+                    <a href="#">
+                        Learn Networking →
+                    </a>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">🔐</div>
+
+                    <h3>Security</h3>
+
+                    <p>
+                        Authentication, encryption, malware,
+                        security controls and common threats.
+                    </p>
+
+                    <a href="#">
+                        Learn Security →
+                    </a>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">🪟</div>
+
+                    <h3>Operating Systems</h3>
+
+                    <p>
+                        Windows, Linux, macOS, command-line tools,
+                        system configuration and troubleshooting.
+                    </p>
+
+                    <a href="#">
+                        Learn Operating Systems →
+                    </a>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">🔧</div>
+
+                    <h3>Troubleshooting</h3>
+
+                    <p>
+                        Learn how to approach technical problems
+                        logically and identify the root cause.
+                    </p>
+
+                    <a href="#">
+                        Learn Troubleshooting →
+                    </a>
+
+                </div>
+
+
+                <div class="topic-card">
+
+                    <div class="topic-icon">📝</div>
+
+                    <h3>Practice Questions</h3>
+
+                    <p>
+                        Test your knowledge with CompTIA A+
+                        style questions and scenarios.
+                    </p>
+
+                    <a href="#">
+                        Take a Quiz →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Learn it.<br>
+                        Understand it.<br>
+                        Remember it.
+                    </h2>
+
+                    <p class="section-intro">
+                        IM the Tech Guy is designed to make technical
+                        subjects easier to understand without drowning
+                        you in unnecessary jargon.
+                    </p>
+
+                </div>
+
+
+                <div class="about-box">
+
+                    <p>
+                        <strong>Why this site?</strong>
+                    </p>
+
+                    <p>
+                        IT can seem complicated when you're starting out.
+                        The goal here is to break concepts down into
+                        understandable pieces.
+                    </p>
+
+                    <p>
+                        Starting with CompTIA A+, the site will grow into
+                        a wider collection of practical IT knowledge.
+                    </p>
+
+                    <p>
+                        <strong>One concept at a time.</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            <strong>IM the Tech Guy</strong>
+            &nbsp; | &nbsp;
+            Learn. Understand. Troubleshoot.
+        </p>
+
+        <p>
+            © 2026 IM the Tech Guy
+        </p>
+
+    </footer>
+
+</body>
+</html>
