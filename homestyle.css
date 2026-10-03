@@ -7,3 +7,50 @@ a:hover {
     text-decoration: underline wavy;
     text-decoration-color: red;
 }
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+}
+
+nav a,
+nav button {
+    color: white;
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+/* Dropdown container */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Dropdown list */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+    display: block;
+    color: black;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Show dropdown when hovering */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
