@@ -8,6 +8,11 @@ a:hover {
     text-decoration-color: red;
 }
 
+body {
+    margin: 0;
+    padding-top: 70px;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -26,31 +31,4 @@ nav button {
     font-size: 16px;
     margin: 0 15px;
     cursor: pointer;
-}
-
-/* Dropdown container */
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
-/* Dropdown list */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 150px;
-}
-
-/* Links inside dropdown */
-.dropdown-content a {
-    display: block;
-    color: black;
-    padding: 10px;
-    margin: 0;
-}
-
-/* Show dropdown when hovering */
-.dropdown:hover .dropdown-content {
-    display: block;
 }
