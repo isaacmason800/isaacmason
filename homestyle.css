@@ -1,3 +1,9 @@
+a {
+    text-decoration: none;
+}
+
 a:hover {
     color: red;
+    text-decoration: underline wavy;
+    text-decoration-color: red;
 }
